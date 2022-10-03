@@ -13,6 +13,7 @@
  *= require_tree .
  *= require_self
  */
+<<<<<<< HEAD
  body {
   overflow: hidden;
 }
@@ -65,3 +66,8 @@
   background-color: #555555;
   padding: 10px;
 }
+=======
+
+
+ 
+>>>>>>> main
