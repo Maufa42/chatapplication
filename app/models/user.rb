@@ -3,7 +3,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-<<<<<<< HEAD
+ 
 
   scope :all_except, -> (user) { where.not(id: user) }
 
@@ -18,5 +18,5 @@ class User < ApplicationRecord
   has_many :messages
 
   after_create_commit {broadcast_append_to "users"}
->>>>>>> main
+  
 end

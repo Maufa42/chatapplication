@@ -1,7 +1,7 @@
 class Room < ApplicationRecord
   validates_uniqueness_of :name
 
-<<<<<<< HEAD
+ 
 
   scope :public_rooms, -> {where(private: false)}
 
@@ -29,5 +29,5 @@ class Room < ApplicationRecord
   after_create_commit {broadcast_append_to "rooms"}
   has_many :messages
   
->>>>>>> main
+  
 end

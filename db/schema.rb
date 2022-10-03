@@ -10,11 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
+ 
 ActiveRecord::Schema[7.0].define(version: 2022_10_03_105422) do
 =======
 ActiveRecord::Schema[7.0].define(version: 2022_10_03_065501) do
->>>>>>> main
+  
   create_table "messages", force: :cascade do |t|
     t.integer "user_id", null: false
     t.integer "room_id", null: false
@@ -25,7 +25,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_03_065501) do
     t.index ["user_id"], name: "index_messages_on_user_id"
   end
 
-<<<<<<< HEAD
+ 
   create_table "participants", force: :cascade do |t|
     t.integer "user_id", null: false
     t.integer "room_id", null: false
@@ -36,7 +36,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_03_065501) do
   end
 
 =======
->>>>>>> main
+  
   create_table "rooms", force: :cascade do |t|
     t.string "name"
     t.boolean "private", default: false
@@ -58,9 +58,9 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_03_065501) do
 
   add_foreign_key "messages", "rooms"
   add_foreign_key "messages", "users"
-<<<<<<< HEAD
+ 
   add_foreign_key "participants", "rooms"
   add_foreign_key "participants", "users"
 =======
->>>>>>> main
+  
 end
