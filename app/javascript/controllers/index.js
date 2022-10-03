@@ -1,4 +1,5 @@
 // Import and register all your controllers from the importmap under controllers/*
+//Hello
 
 import { application } from "controllers/application"
 
