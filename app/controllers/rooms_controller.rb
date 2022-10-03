@@ -3,7 +3,6 @@ class RoomsController < ApplicationController
 
 
   def index
-    @room = Room.new
     @rooms = Room.public_rooms;
     @users = User.all_except(current_user);
 
@@ -26,6 +25,7 @@ class RoomsController < ApplicationController
   def create
     @room  = Room.create(room_params)
   end
+  
   def show
     @single_room = Room.find(params[:id])
 
@@ -45,14 +45,6 @@ class RoomsController < ApplicationController
     @users = User.except_current(current_user);
 
     render 'index'
-
-
-  end
-
-  private
-
-  def room_params
-    params.require(:room).permit(:name)
   end
 
 end

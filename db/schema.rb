@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
- 
+
 ActiveRecord::Schema[7.0].define(version: 2022_10_03_105422) do
 =======
 ActiveRecord::Schema[7.0].define(version: 2022_10_03_065501) do
@@ -35,8 +35,11 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_03_065501) do
     t.index ["user_id"], name: "index_participants_on_user_id"
   end
 
-=======
-  
+
+ActiveRecord::Schema[7.0].define(version: 2022_10_03_081555) do
+
+ActiveRecord::Schema[7.0].define(version: 2022_10_03_081555) do
+
   create_table "rooms", force: :cascade do |t|
     t.string "name"
     t.boolean "private", default: false
@@ -61,6 +64,5 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_03_065501) do
  
   add_foreign_key "participants", "rooms"
   add_foreign_key "participants", "users"
-=======
-  
+
 end
