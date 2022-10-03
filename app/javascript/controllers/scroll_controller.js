@@ -8,6 +8,7 @@ export default class extends Controller {
     messages.addEventListener("DOMNodeInserted", this.resetScroll);
     this.resetScroll(messages);
   }
+  //hello
   /** On stop */
   disconnect() {
     console.log("Disconnected");
