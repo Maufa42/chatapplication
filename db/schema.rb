@@ -11,6 +11,7 @@
 # It's strongly recommended that you check this file into your version control system.
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 ActiveRecord::Schema[7.0].define(version: 2022_10_03_105422) do
 =======
 ActiveRecord::Schema[7.0].define(version: 2022_10_03_065501) do
@@ -37,6 +38,9 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_03_065501) do
 
 =======
 >>>>>>> main
+=======
+ActiveRecord::Schema[7.0].define(version: 2022_10_03_081555) do
+>>>>>>> parent of 0474c70... ➕  Added Stimulas Controller
   create_table "rooms", force: :cascade do |t|
     t.string "name"
     t.boolean "private", default: false
@@ -56,6 +60,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_03_065501) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+<<<<<<< HEAD
   add_foreign_key "messages", "rooms"
   add_foreign_key "messages", "users"
 <<<<<<< HEAD
@@ -63,4 +68,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_03_065501) do
   add_foreign_key "participants", "users"
 =======
 >>>>>>> main
+=======
+>>>>>>> parent of 0474c70... ➕  Added Stimulas Controller
 end

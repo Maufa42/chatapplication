@@ -4,9 +4,9 @@ class RoomsController < ApplicationController
 <<<<<<< HEAD
 
   def index
-    @room = Room.new
     @rooms = Room.public_rooms;
     @users = User.all_except(current_user);
+<<<<<<< HEAD
 =======
   def index
     @room = Room.new
@@ -50,12 +50,9 @@ class RoomsController < ApplicationController
     render 'index'
 
 >>>>>>> main
+=======
+>>>>>>> parent of 0474c70... ➕  Added Stimulas Controller
   end
 
-  private
-
-  def room_params
-    params.require(:room).permit(:name)
-  end
 
 end

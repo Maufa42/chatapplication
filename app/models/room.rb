@@ -2,6 +2,7 @@ class Room < ApplicationRecord
   validates_uniqueness_of :name
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 
   scope :public_rooms, -> {where(private: false)}
 
@@ -30,4 +31,8 @@ class Room < ApplicationRecord
   has_many :messages
   
 >>>>>>> main
+=======
+  
+  scope :public_rooms, -> {where(private: false)}
+>>>>>>> parent of 0474c70... ➕  Added Stimulas Controller
 end

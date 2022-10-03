@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 <<<<<<< HEAD
+<<<<<<< HEAD
   get 'users/show'
   resources :rooms do
     resources :messages
@@ -7,8 +8,10 @@ Rails.application.routes.draw do
 =======
   resources :rooms
 >>>>>>> main
+=======
+  resources :rooms
+>>>>>>> parent of 0474c70... ➕  Added Stimulas Controller
   root 'pages#home'
-  devise_for :users
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
@@ -20,6 +23,7 @@ Rails.application.routes.draw do
     get "users", to: "devise/sessions#new"
   end
 <<<<<<< HEAD
+<<<<<<< HEAD
   get 'user/:id', to: 'users#show', as:'user'  
 
 
@@ -27,6 +31,10 @@ Rails.application.routes.draw do
 =======
   get "user/:id", to:"users#show", as: "user"
 >>>>>>> main
+=======
+  
+  devise_for :users
+>>>>>>> parent of 0474c70... ➕  Added Stimulas Controller
 
 
 
