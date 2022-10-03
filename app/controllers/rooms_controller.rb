@@ -7,6 +7,7 @@ class RoomsController < ApplicationController
     @rooms = Room.public_rooms;
     @users = User.all_except(current_user);
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
   def index
     @room = Room.new
@@ -53,6 +54,10 @@ class RoomsController < ApplicationController
 =======
 >>>>>>> parent of 0474c70... ➕  Added Stimulas Controller
   end
+=======
+  end
+
+>>>>>>> parent of 0474c70... ➕  Added Stimulas Controller
 
 
 end

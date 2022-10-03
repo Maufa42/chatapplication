@@ -7,6 +7,7 @@ class User < ApplicationRecord
 
   scope :all_except, -> (user) { where.not(id: user) }
 <<<<<<< HEAD
+<<<<<<< HEAD
 
   has_many :messages
 
@@ -20,6 +21,8 @@ class User < ApplicationRecord
 
   after_create_commit {broadcast_append_to "users"}
 >>>>>>> main
+=======
+>>>>>>> parent of 0474c70... ➕  Added Stimulas Controller
 =======
 >>>>>>> parent of 0474c70... ➕  Added Stimulas Controller
 end
