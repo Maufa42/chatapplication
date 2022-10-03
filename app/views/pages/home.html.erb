@@ -1,11 +1,15 @@
-<h1>Chat-End</h1>
-
+<div class="flex space-x-2 justify-center">
+  <h2 class="text-4xl font-medium leading-tight text-gray-800">
+    Chat-app
+    <span class="inline-block py-1.5 px-2.5 leading-none text-center whitespace-nowrap align-baseline font-bold bg-blue-600 text-white rounded">Turbo</span>
+  </h2>
+</div>
 
 <% if current_user %>
-<%= link_to "Start Chat","#" %>
+<%= link_to "Start Chat",rooms_path %>
 <%= button_to "Logout",destroy_user_session_path,method: :delete %>
 <%else%>
-<%= link_to "LogIN",new_user_session_path%>
-<%= link_to "SignUP", new_user_registration_path %>
+<%= link_to "LogIN",new_user_session_path,class: "text-blue-600 hover:text-blue-700 transition duration-300 ease-in-out mb-4"%>
+<%= link_to "SignUP", new_user_registration_path,class: "text-purple-600 hover:text-purple-700 transition duration-300 ease-in-out mb-4" %>
 
 <%end%>
