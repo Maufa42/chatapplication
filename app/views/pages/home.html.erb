@@ -1,0 +1,11 @@
+<h1>Chat-End</h1>
+
+
+<% if current_user %>
+<%= link_to "Start Chat","#" %>
+<%= button_to "Logout",destroy_user_session_path,method: :delete %>
+<%else%>
+<%= link_to "LogIN",new_user_session_path%>
+<%= link_to "SignUP", new_user_registration_path %>
+
+<%end%>
