@@ -15,5 +15,6 @@ export default class extends Controller {
   /** Custom function */
   resetScroll() {
     messages.scrollTop = messages.scrollHeight - messages.clientHeight;
+    console.log("TRIGGERED RESET SCROLL-",messages.scrollTop);
   }
 }

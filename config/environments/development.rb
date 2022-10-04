@@ -1,4 +1,11 @@
 require "active_support/core_ext/integer/time"
+#******************************************************Without This Image Will come out to be Broken Image
+Rails.application.config.action_controller.default_url_options = {
+  host: "localhost",
+  port: 3000
+}
+
+
 
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
@@ -11,6 +18,8 @@ Rails.application.configure do
   # Do not eager load code on boot.
   config.eager_load = false
 
+  config.active_storage.variant_processor = :mini_magick
+  
   # Show full error reports.
   config.consider_all_requests_local = true
 

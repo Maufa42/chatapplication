@@ -16,7 +16,6 @@ class RoomsController < ApplicationController
     @rooms = Room.public_rooms;
     @users = User.all_except(current_user);
     @single_room = Room.find(params[:id]);
-
     @message = Message.new
     @messages = @single_room.messages.order(created_at: :asc)
 

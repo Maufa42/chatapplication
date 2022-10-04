@@ -7,6 +7,7 @@ class Room < ApplicationRecord
 
   has_many :messages
   has_many :participants, dependent: :destroy
+  
   after_create_commit {broadcast_if_public}
 
 
@@ -23,4 +24,9 @@ class Room < ApplicationRecord
     single_room
   end
 
+
+  def participant?(room,user)
+    room.participants.where(user: user).exists?
+    # Participant.where(user_id: user.id,room_id: room.id).exists?
+  end
 end
