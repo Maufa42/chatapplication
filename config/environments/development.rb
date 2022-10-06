@@ -1,13 +1,15 @@
 require "active_support/core_ext/integer/time"
 #******************************************************Without This Image Will come out to be Broken Image
-Rails.application.config.action_controller.default_url_options = {
-  host: "localhost",
-  port: 3000
-}
+
 
 
 
 Rails.application.configure do
+
+  config.action_controller.default_url_options = {
+    host: "localhost",
+    port: 3000
+  }
   # Settings specified here will take precedence over those in config/application.rb.
 
   # In the development environment your application's code is reloaded any time
