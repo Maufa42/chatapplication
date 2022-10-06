@@ -5,9 +5,9 @@
   <%end%>
 
 
-<li class ="list-group-item d-flex align-items-center justify-content-between user_list_item<%= isActive%>">
+<li class ="relative block py-3 px-6 -mb-px border border-r-0 border-l-0 border-gray-300 no-underline flex items-center justify-between user_list_item<%= isActive%>">
 <div>
   <%= link_to image_tag(user.avatar.variant(resize_to_limit: [100, 100]),class: 'chat_pfp'),user%>
 </div>
-<%= link_to user.email,user,class: 'ms-2 me-auto username',data: {turbo: "false"}%>
+<%= link_to user.email,user,class: 'ms-2 me-auto username',data: {turbo: "false"},class: "underline text-blue-600 hover:text-blue-800 visited:text-purple-600"%>
 </li>

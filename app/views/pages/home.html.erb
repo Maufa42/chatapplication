@@ -1,13 +1,28 @@
-<h1>Chat-End</h1>
+<h1 class ="text-6xl leading-normal mt-0 mb-2 text-center font-medium leading-tight text-4xl text-blue-600">Chat-End</h1>
+<div class = "grid grid-cols-3 grid-rows-3 place-items-center h-screen">
+ <div class="col-start-2 row-start-2 ">
+        <% if current_user %>
+        <%= link_to "Start Chat",rooms_path,class:"px-6 py-2 font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-blue-600 rounded-md hover:bg-blue-500 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-80" %>
+        <%= button_to "Logout",destroy_user_session_path,method: :delete,class:"py-1.5 px-4 my-3 transition-colors bg-gray-50 border active:bg-red-800 font-medium border-gray-200 hover:text-white text-red-600 hover:border-red-700 rounded-lg hover:bg-red-600 disabled:opacity-50" %>
+        <%= image_tag(current_user.avatar_thumbnail) if current_user.avatar.attached? %>
+        <%= link_to "Edit Account",edit_user_registration_path, class: 'bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded'%>
+        <%else%>
+        <%= link_to "LogIN",new_user_session_path, class:"bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded"%>
+        <%= link_to "SignUP", new_user_registration_path, class:"bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded" %>
+        <%end%>
+  </div>
+</div>
 
 
-<% if current_user %>
-<%= link_to "Start Chat",rooms_path %>
-<%= button_to "Logout",destroy_user_session_path,method: :delete %>
-<%= image_tag(current_user.avatar_thumbnail) if current_user.avatar.attached? %>
-<%= link_to "Edit Account",edit_user_registration_path, class: 'btn btn-secondary'%>
-<%else%>
-<%= link_to "LogIN",new_user_session_path%>
-<%= link_to "SignUP", new_user_registration_path %>
 
-<%end%>
+
+<%# <div class="hero min-h-screen" style="background-image: url(https://placeimg.com/1000/800/arch);">
+  <div class="hero-overlay bg-opacity-60"></div>
+  <div class="hero-content text-center text-neutral-content">
+    <div class="max-w-md">
+      <h1 class="mb-5 text-5xl font-bold">Hello there</h1>
+      <p class="mb-5">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
+      <button class="btn btn-primary">Get Started</button>
+    </div>
+  </div>
+</div> %>
