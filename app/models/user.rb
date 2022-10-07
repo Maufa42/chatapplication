@@ -6,11 +6,13 @@ class User < ApplicationRecord
 
   scope :all_except, -> (user) { where.not(id: user) }
 
-  has_many :messages
+  has_many :messages, dependent: :destroy 
 
 
   after_create_commit {broadcast_append_to "users"}
+
   after_update_commit {broadcast_update}
+  
   after_commit :add_default_avatar, on: %i[create update]
  
   enum status: %i[offline away online]
@@ -32,6 +34,7 @@ class User < ApplicationRecord
   # end
 
   def broadcast_update
+    # debugger
     broadcast_replace_to "user_status",partial: 'users/status',user: self 
   end
   
@@ -44,7 +47,7 @@ class User < ApplicationRecord
     when 'offline'
       'bg-gray-900'
     else
-      'bg-gray-900'
+      'bg-danger-100'
     end
   end
   

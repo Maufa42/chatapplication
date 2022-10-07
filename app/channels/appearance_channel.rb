@@ -9,16 +9,17 @@ class AppearanceChannel < ApplicationCable::Channel
     stop_stream_from "appearance_channel"
     offline
   end
+
   def online
     status = User.statuses[:online]
     broadcast_new_status(status)
   end
-
+  
   def away 
     status = User.statuses[:away]
     broadcast_new_status(status)
   end
-
+  
   def offline
       status = User.statuses[:offline]
       broadcast_new_status(status)
