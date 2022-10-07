@@ -10,9 +10,12 @@ class User < ApplicationRecord
 
 
   after_create_commit {broadcast_append_to "users"}
-  
+  after_update_commit {broadcast_update}
   after_commit :add_default_avatar, on: %i[create update]
  
+  enum status: %i[offline away online]
+
+
   has_one_attached :avatar do |image|
     image.variant :avatar_thumbnail, resize_to_limit: [100, 100]
     image.variant :chat_avatar, resize_to_limit: [100, 100]
@@ -28,6 +31,23 @@ class User < ApplicationRecord
   #   avatar.variant(resize_to_limit: [50, 50]).processed
   # end
 
+  def broadcast_update
+    broadcast_replace_to "user_status",partial: 'users/status',user: self 
+  end
+  
+  def status_to_css
+    case status
+    when 'online'
+      'bg-green-500'
+    when 'away'
+      'bg-yellow-500'
+    when 'offline'
+      'bg-gray-900'
+    else
+      'bg-gray-900'
+    end
+  end
+  
   private
 
   def add_default_avatar

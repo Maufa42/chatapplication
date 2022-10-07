@@ -1,28 +1,31 @@
-<h1 class ="text-6xl leading-normal mt-0 mb-2 text-center font-medium leading-tight text-4xl text-blue-600">Chat-End</h1>
-<div class = "grid grid-cols-3 grid-rows-3 place-items-center h-screen">
- <div class="col-start-2 row-start-2 ">
-        <% if current_user %>
-        <%= link_to "Start Chat",rooms_path,class:"px-6 py-2 font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-blue-600 rounded-md hover:bg-blue-500 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-80" %>
-        <%= button_to "Logout",destroy_user_session_path,method: :delete,class:"py-1.5 px-4 my-3 transition-colors bg-gray-50 border active:bg-red-800 font-medium border-gray-200 hover:text-white text-red-600 hover:border-red-700 rounded-lg hover:bg-red-600 disabled:opacity-50" %>
-        <%= image_tag(current_user.avatar_thumbnail) if current_user.avatar.attached? %>
-        <%= link_to "Edit Account",edit_user_registration_path, class: 'bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded'%>
-        <%else%>
-        <%= link_to "LogIN",new_user_session_path, class:"bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded"%>
-        <%= link_to "SignUP", new_user_registration_path, class:"bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded" %>
-        <%end%>
-  </div>
-</div>
+<section class="bg-gray-900 text-white">
+  <div
+    class="mx-auto max-w-screen-xl px-4 py-32 lg:flex lg:h-screen lg:items-center"
+  >
+    <div class="mx-auto max-w-3xl text-center">
+      <h1
+        class="bg-gradient-to-r from-green-300 via-blue-500 to-purple-600 bg-clip-text text-3xl font-extrabold text-transparent sm:text-5xl"
+      >
+        Understand Relations
 
+        <span class="sm:block"> Increase Conversion. </span>
+      </h1>
 
+      <% if current_user %>
+        <%=link_to"Start Chat",rooms_path,class:"my-3 block w-full rounded border border-blue-600 bg-blue-600 px-12 py-3 text-sm font-medium text-white hover:bg-transparent hover:text-white focus:outline-none focus:ring active:text-opacity-75 sm:w-auto"%>
+      <%else%>
+      <p class="mx-auto mt-4 max-w-xl sm:text-xl sm:leading-relaxed">
+        What makes our product work is the way we're tightly focused on messaging and being as SMS replacement.
+      </p>
 
-
-<%# <div class="hero min-h-screen" style="background-image: url(https://placeimg.com/1000/800/arch);">
-  <div class="hero-overlay bg-opacity-60"></div>
-  <div class="hero-content text-center text-neutral-content">
-    <div class="max-w-md">
-      <h1 class="mb-5 text-5xl font-bold">Hello there</h1>
-      <p class="mb-5">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
-      <button class="btn btn-primary">Get Started</button>
+      <div class="mt-8 flex flex-wrap justify-center gap-4">
+      <%=link_to"Get Started",new_user_registration_path,class:"block w-full rounded border border-blue-600 bg-blue-600 px-12 py-3 text-sm font-medium text-white hover:bg-transparent hover:text-white focus:outline-none focus:ring active:text-opacity-75 sm:w-auto"%>
+      <%=link_to "Login",new_user_session_path,class:"block w-full rounded border border-blue-600 px-12 py-3 text-sm font-medium text-white hover:bg-blue-600 focus:outline-none focus:ring active:bg-blue-500 sm:w-auto" %>
+      <% end %>
+      </div>
     </div>
   </div>
-</div> %>
+</section>
+
+
+
