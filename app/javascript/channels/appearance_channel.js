@@ -74,7 +74,7 @@ consumer.subscriptions.create("AppearanceChannel", {
     this.uninstall();
     const shouldRun = document.getElementById("appearance_channel");
 
-    if(!shouldRun){
+    if(!!shouldRun){
       this.online();
       clearTimeout(timer);
       const timeInSeconds = 5;
