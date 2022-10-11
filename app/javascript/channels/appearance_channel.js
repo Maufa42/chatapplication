@@ -23,22 +23,22 @@ consumer.subscriptions.create("AppearanceChannel", {
   
   // Called when the subscription is rejected by the server.
   rejected(){
-    console.log("Rejected");
+    // console.log("Rejected");
     this.uninstall();
   },
 
   online(){
-    console.log("online");
+    // console.log("online");
     this.perform("online");
   },
   
   away(){
-    console.log("away");
+    // console.log("away");
     this.perform("away");
   },
   
   offline(){
-    console.log("offline");
+    // console.log("offline");
     this.perform("offline");
   },  
   
@@ -57,7 +57,7 @@ consumer.subscriptions.create("AppearanceChannel", {
   },
   
   install(){
-    console.log("Install")
+    // console.log("Install")
     window.removeEventListener("load",resetFunc);
     window.removeEventListener("DOMContentLoaded",resetFunc);
     window.removeEventListener("click",resetFunc);
