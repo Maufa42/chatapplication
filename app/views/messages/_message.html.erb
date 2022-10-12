@@ -16,7 +16,7 @@
       <% message.attachments.each_with_index do |attachment,index|%>
           <% if attachment.nil? %>
           <% next %>
-          <% elsif attachment.image? || attachment.nil?%>
+          <% elsif attachment.image? && attachment.nil?%>
             <%= image_tag(message.chat_attachment(index))%>
           <% elsif attachment.video? %>
             <%= video_tag(url_for(attachment), style: 'height:auto; width:100%', controls: '')%>

@@ -5,7 +5,7 @@ class RoomsController < ApplicationController
   def index
     @room = Room.new
     @rooms = Room.public_rooms;
-    @users = User.all_except(current_user);
+    @users = User.all_except(current_user).joins(:messages).order(updated_at: :desc).uniq;
     render 'index'
 
   end
@@ -14,7 +14,8 @@ class RoomsController < ApplicationController
   def show
     @room = Room.new
     @rooms = Room.public_rooms;
-    @users = User.all_except(current_user);
+    @users = User.all_except(current_user).joins(:messages).order(updated_at: :desc).uniq;
+    # User.joins(:messages).order(updated_at: :desc)
     @single_room = Room.find(params[:id]);
     @message = Message.new
     @messages = @single_room.messages.order(created_at: :asc)

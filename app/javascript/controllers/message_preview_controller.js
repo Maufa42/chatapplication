@@ -41,7 +41,7 @@ export default class extends Controller {
   }
 
   constructPreviews(file,reader){
-    console.log("CHECKING CONSTRUCT PREVIEWS",file.type)
+    console.log("CHECKING CONSTRUCT PREVIEWS",file.type)  
     let element;
     let cancelFunciton = (e) => this.removePreview(e);
     switch(file.type){
