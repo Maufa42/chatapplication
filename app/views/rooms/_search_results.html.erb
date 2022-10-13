@@ -1,0 +1,7 @@
+<% rooms.each do |room|%>
+<li class ="bg-black relative block py-3 px-6 -mb-px border border-r-0 border-l-0 border-gray-300 no-underline flex items-center justify-between user_list_item">
+<%= link_to room.name,room_path(id: room.id,name_search: params[:name_search]),data: {turbo: "false"}%>
+
+<%= render "rooms/joinable_link",room: room%>
+</li>
+<%end%>

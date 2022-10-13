@@ -1,22 +1,29 @@
 class RoomsController < ApplicationController
+  include RoomHelper
   before_action :authenticate_user!
   before_action :set_status
 
   def index
     @room = Room.new
-    @rooms = Room.public_rooms;
-    @users = User.all_except(current_user).joins(:messages).order(updated_at: :desc).uniq;
+    @joined_rooms = current_user.joined_rooms.order('last_message_at DESC') 
+    @rooms   = search_rooms;
+
+
+    @users = User.all_except(current_user)
     render 'index'
 
   end
   
   
   def show
-    @room = Room.new
-    @rooms = Room.public_rooms;
-    @users = User.all_except(current_user).joins(:messages).order(updated_at: :desc).uniq;
-    # User.joins(:messages).order(updated_at: :desc)
     @single_room = Room.find(params[:id]);
+
+    @room = Room.new
+    @rooms = search_rooms;
+    @joined_rooms = current_user.joined_rooms.order('last_message_at DESC')
+
+    @users = User.all_except(current_user)
+    # User.joins(:messages).order(updated_at: :desc)
     @message = Message.new
     @messages = @single_room.messages.order(created_at: :asc)
 
@@ -24,7 +31,33 @@ class RoomsController < ApplicationController
   end
 
   def create
-   @room = Room.create(room_params) 
+   @room = Room.create(name: params['room']['name'])
+   redirect_to @room 
+  end
+
+  def search
+    @rooms = search_rooms
+    respond_to do |format|
+      format.turbo_stream do 
+        render turbo_stream: [
+          turbo_stream.update('search_results',
+          partial: "rooms/search_results",
+          locals: {rooms: @rooms})
+        ]
+      end
+    end
+  end
+
+  def join
+    @room = Room.find(params[:id])
+    current_user.joined_rooms << @room
+    redirect_to @room
+  end
+
+  def leave
+    @room = Room.find(params[:id])
+    current_user.joined_rooms.delete(@room)
+    redirect_to @rooms_path
   end
 
   private

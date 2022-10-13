@@ -1,8 +1,13 @@
 class Message < ApplicationRecord
   belongs_to :user
   belongs_to :room
-
+  
   has_many_attached :attachments, dependent: :destroy
+  
+  after_create_commit do
+    update_parent_room 
+    broadcast_append_to room 
+  end
   
   def image?(file)
     file.to_s.include?(".gif") or file.to_s.include?(".png") or file.to_s.include?(".jpg")
@@ -22,7 +27,6 @@ class Message < ApplicationRecord
     end
   end
   
-  after_create_commit { broadcast_append_to self.room }
   
   before_create :confirm_participants
 
@@ -30,6 +34,10 @@ class Message < ApplicationRecord
     return unless room.private
       is_participant = Participant.where(user_id: self.user.id, room_id: self.room.id).first
       throw :abort unless is_participant
+  end
+
+  def update_parent_room
+    room.update(last_message_at: Time.now)
   end
 
 end

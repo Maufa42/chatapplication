@@ -7,7 +7,8 @@ class User < ApplicationRecord
   scope :all_except, -> (user) { where.not(id: user) }
 
   has_many :messages, dependent: :destroy 
-
+  has_many :joinables, dependent: :destroy
+  has_many :joined_rooms, through: :joinables,source: :room
 
   after_create_commit {broadcast_append_to "users"}
 
@@ -15,8 +16,14 @@ class User < ApplicationRecord
   
   after_commit :add_default_avatar, on: %i[create update]
  
+  after_initialize :set_default_role, if: :new_record?
+  
   enum status: %i[offline away online]
+  enum role: %i[user admin]
 
+  def set_default_role
+    self.role ||= :user
+  end
 
   has_one_attached :avatar do |image|
     image.variant :avatar_thumbnail, resize_to_limit: [100, 100]
@@ -36,6 +43,10 @@ class User < ApplicationRecord
   def broadcast_update
     # debugger
     broadcast_replace_to "user_status",partial: 'users/status',user: self 
+  end
+
+  def has_joined_room(room)
+    joined_rooms.include?(room)
   end
   
   def status_to_css
@@ -61,4 +72,6 @@ class User < ApplicationRecord
       filename: 'default_profile.jpg'
     )
   end
+
+ 
 end
