@@ -23,7 +23,7 @@ Rails.application.configure do
   # Do not eager load code on boot.
   config.eager_load = false
 
-  config.active_storage.variant_processor = :vips
+  config.active_storage.variant_processor = :mini_magick
   
   # Show full error reports.
   config.consider_all_requests_local = true
