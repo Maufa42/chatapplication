@@ -15,11 +15,11 @@ development:
   username: postgres
   password: 123456789
   host: localhost
-# production:
-#   database: chat_production
-#   adapter: postgresql
-#   encoding: unicode
-#   pool: 5
+test:
+  database: chat_test
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
  
 #   username: postgres
 #   password: 123456789

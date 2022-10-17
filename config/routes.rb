@@ -1,10 +1,11 @@
-Rails.application.routes.draw do
+# frozen_string_literal: true
 
+Rails.application.routes.draw do
   resources :rooms do
     resources :messages
   end
   root 'pages#home'
-  devise_for :users ,controllers:{
+  devise_for :users, controllers: {
     sessions: 'users/sessions',
     registrations: 'users/registrations'
   }
@@ -13,11 +14,5 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "articles#index"
 
-  get 'user/:id', to: 'users#show', as:'user'  
-
-
-  
-
-
-
+  get 'user/:id', to: 'users#show', as: 'user'
 end
